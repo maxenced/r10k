@@ -33,6 +33,8 @@ Puppetfile (http://bombasticmonkey.com/librarian-puppet/).
 
           required nil, :moduledir, 'Path to install modules to'
           required nil, :puppetfile, 'Path to puppetfile'
+          required :p, :parallel, 'Number of module installations to conduct in parallel', argument: :required
+
           # @todo add --no-purge option
           runner R10K::Action::Puppetfile::CriRunner.wrap(R10K::Action::Puppetfile::Install)
         end
