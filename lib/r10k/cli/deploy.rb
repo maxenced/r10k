@@ -52,6 +52,7 @@ scheduled. On subsequent deployments, Puppetfile deployment will default to off.
           DESCRIPTION
 
           flag :p, :puppetfile, 'Deploy modules from a puppetfile'
+          required :t, :threads, 'Number of module installations to conduct in parallel'
 
           runner R10K::Action::CriRunner.wrap(R10K::Action::Deploy::Environment)
         end
