@@ -74,9 +74,9 @@ class R10K::Environment::Base
     @puppetfile.modules
   end
 
-  def accept(visitor)
+  def accept(visitor, parallel = 1)
     visitor.visit(:environment, self) do
-      puppetfile.accept(visitor, @threads)
+      puppetfile.accept(visitor, parallel)
     end
   end
 end

@@ -19,7 +19,7 @@ module R10K
             :puppetfile => :self,
             :purge      => :self,
             :trace      => :self,
-            :threads    => :self
+            :forks      => :self
           })
 
           @purge = true
@@ -28,7 +28,7 @@ module R10K
         def call
           @visit_ok = true
           deployment = R10K::Deployment.load_config(@config)
-          deployment.accept(self)
+          deployment.accept(self, @opts[:forks].to_i)
           @visit_ok
         end
 

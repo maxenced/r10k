@@ -96,10 +96,10 @@ module R10K
       end
     end
 
-    def accept(visitor)
+    def accept(visitor, parallel = 1)
       visitor.visit(:deployment, self) do
         sources.each do |env|
-          env.accept(visitor)
+          env.accept(visitor, parallel)
         end
       end
     end

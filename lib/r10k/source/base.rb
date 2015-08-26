@@ -58,10 +58,10 @@ class R10K::Source::Base
     raise NotImplementedError, "#{self.class} has not implemented method #{__method__}"
   end
 
-  def accept(visitor)
+  def accept(visitor, parallel = 1)
     visitor.visit(:source, self) do
       environments.each do |env|
-        env.accept(visitor)
+        env.accept(visitor, parallel)
       end
     end
   end
